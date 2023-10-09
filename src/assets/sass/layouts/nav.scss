@@ -1,0 +1,28 @@
+@import '../abstract/colors';
+@import '../base/typography';
+#nav{
+    display: flex;
+    align-items: center;
+    height: 68px;
+
+    &__first
+    {
+        display: flex;
+        align-items: center;
+
+        a{
+            text-decoration: none;
+            color: map-get($grayishblue, 'dark')
+        }
+    }
+}
+
+@media only screen and (min-width: 1112px)
+{
+    #nav{
+        width: 1112px;
+        border: solid red;
+        margin: 0 auto;
+        height: 112px;
+    }
+}
