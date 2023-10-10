@@ -9,9 +9,6 @@ const links = ref([
     {link: '#', display: 'About', id: 4},
     {link: '#', display: 'Contact', id: 5}
 ])
-
-
-
 </script>
 
 <template>
@@ -19,8 +16,8 @@ const links = ref([
         <div id="nav__first">
             <a href=""><img src="../assets/images/logo.svg" alt="Logo / Home"></a>
 
-            <div id="nav__links" v-for="link in links" v-bind:link="link.link" :key="link.id">
-                <a v-bind:href="link.link">{{ link.display }}</a>
+            <div id="nav__links">
+                <a v-for="link in links" v-bind:href="link.link" :key="link.id">{{ link.display }}</a>
             </div>
         </div>
 
