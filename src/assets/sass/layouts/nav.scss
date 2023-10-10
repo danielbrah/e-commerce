@@ -3,25 +3,36 @@
 #nav{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 68px;
+
+    > *{
+        display: flex;
+        align-items: center;
+    }
 
     &__first
     {
-        display: flex;
-        align-items: center;
         grid-gap: 50px;
         gap: 50px;
 
-        div{
-            display: flex;
-            align-items: center;
-            grid-gap: 16px;
-            gap: 16px;
-        }
+        #nav__links{display: none;}
 
         a{
             text-decoration: none;
             color: map-get($grayishblue, 'dark')
+        }
+    }
+
+    &__second
+    {
+        gap: 16px;
+        img{
+            &:nth-child(2)
+            {
+                width: 25px;
+                height: 25px;
+            }
         }
     }
 }
@@ -32,15 +43,63 @@
         width: 1112px;
         margin: 0 auto;
         height: 112px;
+        border-bottom: solid map-get($grayishblue, 'normal');
 
         &__first
         {
             #nav__links
             {
+                display: flex;
+                align-items: center;
+                grid-gap: 16px;
+                gap: 16px;
                 a
                 {
+                    padding: 44px 0;
+                    position: relative;
+                    &::after{
+                        content: ' ';
+                        background: map-get($orange,'normal');
+                        transform: scaleX(0);
+                        width: 100%;
+                        height: 3px;
+                        position: absolute;
+                        bottom: -1px;
+                        left: 0;
+                        transition: transform 250ms ease;
+                        transform-origin: right;
+                    }
+                    &:hover::after
+                    {
+                        content: ' ';
+                        background: map-get($orange,'normal');
+                        transform: scaleX(1);
+                        width: 100%;
+                        height: 3px;
+                        position: absolute;
+                        bottom: -1px;
+                        left: 0;
+                        transform-origin: left;
+                    }
+                }
+            }
+        }
+
+        &__second
+        {
+            gap: 42px;
+            img{
+                cursor: pointer;
+                &:nth-child(2)
+                {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    outline: 2px solid transparent;
+                    transition: outline 250ms ease;
+
                     &:hover{
-                        color: red;
+                        outline: 2px solid map-get($orange, "normal");
                     }
                 }
             }

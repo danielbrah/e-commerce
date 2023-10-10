@@ -21,7 +21,10 @@ const links = ref([
             </div>
         </div>
 
-        <div id="nav__second"></div>
+        <div id="nav__second">
+            <img src="./icons/icon-cart.svg" alt="Cart icon / Show items in cart">
+            <img src="../assets/images/image-avatar.png" alt="Profile avatar">
+        </div>
     </div>
 </template>
 
