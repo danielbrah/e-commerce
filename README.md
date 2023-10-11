@@ -1,2 +1,2 @@
 # E-commerce
-[Live site here](https://stately-dango-30e312.netlify.app/)
+[Live site here](https://sneakers-ecommerce-5150.netlify.app/)
