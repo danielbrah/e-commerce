@@ -1,0 +1,12 @@
+@import '../abstract/mixins.scss';
+@import '../abstract/colors.scss';
+
+#hero__text
+{
+    &--buttons
+    {
+        button{
+            @include button(map-get($orange, 'normal'), white);
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@mixin button($bgColor: White, $txtColor: Black, $transition: true){
+    border: none;
+    padding: 14px 20px;
+    color: $txtColor;
+    background: $bgColor;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+
+    @if($transition)
+    {
+        transition: background 250ms ease, color 250ms ease;
+
+        &:hover{
+            background: $txtColor;
+            color: $bgColor;
+        }
+    }
+}

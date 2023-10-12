@@ -7,3 +7,23 @@ $kumbh: 'Kumbh Sans', sans-serif;
         a{font-family: $kumbh} 
     }
 }
+
+#hero__text
+{
+    color: white;
+    font-family: $kumbh;
+
+    > *{
+        text-align: center;
+    }
+
+    h1{
+        font-size: 48px;
+        line-height: 150%;
+    }
+    
+    p{
+        font-size: 24px;
+        max-width: 35ch;
+    }
+}
