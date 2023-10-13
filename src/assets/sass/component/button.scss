@@ -6,6 +6,7 @@
     &--buttons
     {
         button{
+            margin-top: 8px;
             @include button(map-get($orange, 'normal'), white);
         }
     }
