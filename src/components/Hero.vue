@@ -1,22 +1,29 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const shoe = ref(null)
-
-function imageLoaded(){
-    shoe.value.style.animation = 'left-shoe 550ms ease forwards';
+const hero1 = ref(null)
+const options = {
+    root: null,
+    rootMargin: '-112px',
 }
 
-// onMounted(() => {
-//     shoe.value.children[0].addEventListener('load', () =>{
-//         shoe.value.children[0]
-//     })
-// })
+function imageLoaded(){
+    shoe.value.style.animation = 'drop 850ms ease forwards';
+    shoe.value.children[0].style.animation = 'rotate 850ms ease forwards' // The shoe itself
+}
 
+onMounted(() => {
+    const heroObs = new IntersectionObserver(entries => {
+        
+    }, options)
+
+    heroObs.observe(hero1.value)
+})
 </script>
 
 <template>
-    <div id="hero">
+    <div ref="hero1" id="hero">
         <div id="hero__text">
             <h1>Sneakers, sneakers, and <br>more sneakers!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui molestias vero amet, tenetur quisquam distinctio!</p>

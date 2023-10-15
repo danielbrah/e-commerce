@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import Cart from '../components/Nav.vue';
 
+defineProps({
+    heroInViewport : Boolean
+})
+
 const links = ref([
     {link: '#', display: 'Collections', id: 1},
     {link: '#', display: 'Men', id: 2},
@@ -12,7 +16,8 @@ const links = ref([
 </script>
 
 <template>
-    <div id="nav">
+    <div id="nav-wrapper" :class="{ 'active' : heroInViewport}">
+        <div id="nav">
         <div id="nav__first">
             <a href=""><img src="../assets/images/logo.svg" alt="Logo / Home"></a>
 
@@ -25,6 +30,7 @@ const links = ref([
             <img src="./icons/icon-cart.svg" alt="Cart icon / Show items in cart">
             <img src="../assets/images/image-avatar.png" alt="Profile avatar">
         </div>
+    </div>
     </div>
 </template>
 
