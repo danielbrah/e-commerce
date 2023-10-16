@@ -16,7 +16,7 @@ const links = ref([
 </script>
 
 <template>
-    <div id="nav-wrapper" :class="{ 'active' : heroInViewport}">
+    <div id="nav-wrapper" :class="{ 'active' : !heroInViewport}">
         <div id="nav">
         <div id="nav__first">
             <a href=""><img src="../assets/images/logo.svg" alt="Logo / Home"></a>

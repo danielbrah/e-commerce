@@ -8,6 +8,8 @@ const options = {
     rootMargin: '-112px',
 }
 
+const emit = defineEmits(['heroInView'])
+
 function imageLoaded(){
     shoe.value.style.animation = 'drop 850ms ease forwards';
     shoe.value.children[0].style.animation = 'rotate 850ms ease forwards' // The shoe itself
@@ -15,7 +17,8 @@ function imageLoaded(){
 
 onMounted(() => {
     const heroObs = new IntersectionObserver(entries => {
-        
+        if(entries[0].isIntersecting) emit('heroInView', true)
+        else emit('heroInView', false)
     }, options)
 
     heroObs.observe(hero1.value)

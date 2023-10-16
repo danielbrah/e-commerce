@@ -6,10 +6,9 @@
     position: relative;
     display: grid;
     place-items: center;
-    height: calc(100vh - 68px);
+    height: 100vh;
     overflow: hidden;
     background: $heroColor;
-    margin-top: 68px;
     z-index: 0;
 
     &__text
@@ -27,11 +26,6 @@
 
     @media only screen and (min-width: 1112px)
     {
-
-        margin-top: 112px;
-
-        height: calc(100vh - 112px);
-
         .shoe__container
         {
             display: grid;
