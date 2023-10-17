@@ -6,9 +6,7 @@ import Products from './components/Products.vue'
 
 let isHeroInView = ref(null)
 
-const catchIt = value => {
-    isHeroInView.value = value
-}
+const catchIt = value => isHeroInView.value = value
 
 </script>
 

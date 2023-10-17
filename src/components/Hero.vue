@@ -15,6 +15,8 @@ function imageLoaded(){
     shoe.value.children[0].style.animation = 'rotate 850ms ease forwards' // The shoe itself
 }
 
+const scrollTo = () => document.querySelector("#products").scrollIntoView({"behavior": 'smooth'})
+
 onMounted(() => {
     const heroObs = new IntersectionObserver(entries => {
         if(entries[0].isIntersecting) emit('heroInView', true)
