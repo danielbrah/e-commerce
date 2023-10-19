@@ -30,7 +30,7 @@ onMounted(() => {
 <template>
     <div ref="hero1" id="hero">
         <div id="hero__text">
-            <h1>Sneakers, sneakers, and <br>more sneakers!</h1>
+            <h1>Welcome to the <br><span>Sneakers</span> shop!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui molestias vero amet, tenetur quisquam distinctio!</p>
 
             <div id="hero__text--buttons">

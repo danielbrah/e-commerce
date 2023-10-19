@@ -1,12 +1,17 @@
 @import '../abstract/mixins.scss';
 @import '../abstract/colors.scss';
+@import '../base/typography.scss';
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap');
 
 #hero__text
 {
     &--buttons
     {
         button{
+            font-family: $kumbh;
             margin-top: 8px;
+            font-weight: 600;
+
             @include button(map-get($orange, 'normal'), white);
         }
     }
