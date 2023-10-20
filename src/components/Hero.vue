@@ -39,10 +39,10 @@ onMounted(() => {
                 </button>
             </div>
 
-            <div ref="shoe" class="shoe__container">
+            <div style="user-select: none;" ref="shoe" class="shoe__container">
                 <img @load="imageLoaded" src="../assets/images/hero-left.png" alt="Sneakers running shoes" aria-hidden="true">
             </div>
-            <img src="../assets/images/hero-right.png" alt="Sneakers running shoes" aria-hidden="true">
+            <img style="user-select: none;" src="../assets/images/hero-right.png" alt="Sneakers running shoes" aria-hidden="true">
         </div>
     </div>
 </template>
