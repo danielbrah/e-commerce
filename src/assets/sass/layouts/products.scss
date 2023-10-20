@@ -1,5 +1,53 @@
+@import '../abstract/mixins.scss';
 #products
 {
-    height: 200vh;
-    padding-top: 150px;
+    padding: 150px 0;
+
+    &__title
+    {
+        margin-bottom: 64px;
+    }
+
+    &__container
+    {
+        @include flexCenter();
+        gap: 64px;
+        
+        > div 
+        {
+            @include flexCenter();
+            justify-content: space-between;
+            min-width: 325px;
+            height: 494px;
+            box-shadow: 3px 3px 3px rgb(201, 201, 201);
+            border-radius: 8px;
+
+            h2{
+                font-size: 26px;
+            }
+        }
+
+        // container
+        @media only screen and (min-width: 768px)
+        {
+            gap: 75px;
+            display: grid;
+            grid-template-columns: repeat(2, 325px);
+        }
+
+        @media only screen and (min-width: 1366px)
+        {
+            grid-template-columns: repeat(3, 325px);
+        }
+
+        @media only screen and (min-width: 1920px)
+        {
+            grid-template-columns: repeat(4, 325px);
+        }
+    }
+
+    @media only screen and (min-width: 768px)
+    {
+        @include flexCenter();
+    }
 }

@@ -4,7 +4,16 @@
 
 <template>
     <div id="products">
-        <h2>Products and stuff</h2>
+        <h2 id="products__title">Products and stuff</h2>
+        <div id="products__container">
+            <div class="product" v-for="product in $products" :key="product.id">
+                <!-- <img src="" alt=""> -->
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <button>View</button>
+                <h3>${{ product.price }}</h3>
+            </div>
+        </div>
     </div>
 </template>
 

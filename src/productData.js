@@ -4,20 +4,31 @@ export const products = [
         name: 'Shoes',
         price: 49.99, 
         description: "Lorem ipsum", 
-        imageURL: ""
+        imageURL: "", 
+        gender: 'unisex'
     }, 
     {
         id: 2,
         name: "Shirt",
         price: 29.99,
         description: "Lorem ipsum",
-        imageURL: ""
+        imageURL: "",
+        gender: 'unisex'
     }, 
     {
         id: 3,
         name: "Pants",
         price: 39.99,
         description: "Lorem ipsum",
-        imageURL: ""
+        imageURL: "",
+        gender: 'unisex'
     }, 
+    {
+        id: 4,
+        name: "Hat",
+        price: 5,
+        description: "Lorem ipsum",
+        imageURL: "",
+        gender: 'unisex'
+    }
 ]
