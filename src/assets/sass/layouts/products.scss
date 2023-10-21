@@ -25,6 +25,11 @@
             h2{
                 font-size: 26px;
             }
+
+            button{
+                @include button;
+                border: solid black;
+            }
         }
 
         // container
@@ -43,6 +48,11 @@
         @media only screen and (min-width: 1920px)
         {
             grid-template-columns: repeat(4, 325px);
+        }
+        
+        @media only screen and (min-width: 1920px)
+        {
+            grid-template-columns: repeat(5, 325px);
         }
     }
 

@@ -1,11 +1,15 @@
+@import '../base/typography.scss';
 @mixin button($bgColor: White, $txtColor: Black, $transition: true){
     border: none;
-    padding: 14px 20px;
+    padding: 14px 18px;
     color: $txtColor;
     background: $bgColor;
     cursor: pointer;
     border-radius: 5px;
     font-size: 20px;
+    font-family: $kumbh;
+    font-weight: 700;
+    letter-spacing: 1px;
 
     @if($transition)
     {
