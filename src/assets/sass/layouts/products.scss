@@ -16,14 +16,29 @@
         > div 
         {
             @include flexCenter();
+            padding: 24px 10px;
             justify-content: space-between;
             min-width: 325px;
             height: 494px;
             box-shadow: 3px 3px 3px rgb(201, 201, 201);
             border-radius: 8px;
+            position: relative;
+
+            img
+            {
+                max-width: 100%;
+                height: 150px;
+            }
 
             h2{
-                font-size: 26px;
+                font-size: 20px;
+                line-height: 130%;
+            }
+
+            h3{
+                position: absolute;
+                bottom: 37.5px;
+                right: 20px;
             }
 
             button{
@@ -33,24 +48,24 @@
         }
 
         // container
-        @media only screen and (min-width: 768px)
+        @media (min-width: 768px)
         {
             gap: 75px;
             display: grid;
             grid-template-columns: repeat(2, 325px);
         }
 
-        @media only screen and (min-width: 1366px)
+        @media (min-width: 1366px)
         {
             grid-template-columns: repeat(3, 325px);
         }
 
-        @media only screen and (min-width: 1920px)
+        @media (min-width: 1920px)
         {
             grid-template-columns: repeat(4, 325px);
         }
         
-        @media only screen and (min-width: 1920px)
+        @media (min-width: 1920px)
         {
             grid-template-columns: repeat(5, 325px);
         }
