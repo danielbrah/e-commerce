@@ -20,7 +20,6 @@ const scrollTo = () => document.querySelector("#products").scrollIntoView({"beha
 
 onMounted(() => {
     heroObs = new IntersectionObserver(entries => {
-        console.log(entries)
         if(entries[0].isIntersecting) emit('heroInView', true)
         else emit('heroInView', false)
     }, options)
