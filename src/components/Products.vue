@@ -9,7 +9,6 @@
             if(!res.ok) throw new Error('Something went wrong with getting data.')
 
             const data = await res.json()
-            console.log(data)
             productData.value = data
         } catch(err)
         {

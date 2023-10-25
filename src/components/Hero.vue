@@ -1,8 +1,9 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const shoe = ref(null)
 const hero1 = ref(null)
+let heroObs 
 const options = {
     root: null,
     rootMargin: '-112px',
@@ -18,12 +19,17 @@ function imageLoaded(){
 const scrollTo = () => document.querySelector("#products").scrollIntoView({"behavior": 'smooth'})
 
 onMounted(() => {
-    const heroObs = new IntersectionObserver(entries => {
+    heroObs = new IntersectionObserver(entries => {
+        console.log(entries)
         if(entries[0].isIntersecting) emit('heroInView', true)
         else emit('heroInView', false)
     }, options)
 
     heroObs.observe(hero1.value)
+})
+
+onUnmounted(() => {
+    emit('heroInView', false)
 })
 </script>
 

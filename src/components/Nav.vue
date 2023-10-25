@@ -7,8 +7,8 @@ defineProps({
 })
 
 const links = ref([
-    {link: '#', display: 'About', id: 1},
-    {link: '#', display: 'Contact', id: 2}
+    {link: '/about', display: 'About', id: 1},
+    {link: '/contact', display: 'Contact', id: 2}
 ])
 </script>
 
@@ -16,11 +16,12 @@ const links = ref([
     <div id="nav-wrapper" :class="{ 'active' : !heroInViewport}">
         <div id="nav">
         <div id="nav__first">
-            <a class="nav__dark" href=""><img src="../assets/images/logo.svg" alt="Logo / Home"></a>
-            <a class="nav__light" href=""><img src="../assets/images/logo-light.svg" alt="Logo / Home"></a>
+            <router-link to="/" class="nav__dark"><img src="../assets/images/logo.svg" alt="Logo / Home"></router-link>
+            <router-link to="/" class="nav__light"><img src="../assets/images/logo-light.svg" alt="Logo / Home"></router-link>
 
             <div id="nav__links">
-                <a v-for="link in links" v-bind:href="link.link" :key="link.id">{{ link.display }}</a>
+                <router-link v-for="link in links" v-bind:to="link.link" :key="link.id">{{ link.display }}</router-link>
+                <p></p>
             </div>
         </div>
 
