@@ -47,7 +47,7 @@
             }
         }
 
-        // container
+        // products container
         @media (min-width: 768px)
         {
             gap: 75px;
@@ -60,12 +60,12 @@
             grid-template-columns: repeat(3, 325px);
         }
 
-        @media (min-width: 1920px)
+        @media (min-width: 1780px)
         {
             grid-template-columns: repeat(4, 325px);
         }
         
-        @media (min-width: 1920px)
+        @media (min-width: 2220px)
         {
             grid-template-columns: repeat(5, 325px);
         }

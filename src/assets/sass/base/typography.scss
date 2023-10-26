@@ -45,3 +45,10 @@ $kumbh: 'Kumbh Sans', sans-serif;
 
     h2{font-size: 36px; text-align: center;}
 }
+
+#about
+{
+    font-family: $kumbh;
+
+    &__title{font-size: 38px}
+}
