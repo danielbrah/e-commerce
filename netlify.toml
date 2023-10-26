@@ -1,0 +1,5 @@
+[[headers]]
+  # Define the rule to modify the Location header
+  for = "/*"
+  [headers.values]
+    Location = "/:splat"
