@@ -1,5 +1,6 @@
-[[headers]]
-  # Define the rule to modify the Location header
-  for = "/*"
-  [headers.values]
-    Location = "/:splat"
+[[redirects]]
+    from = '/about'
+    to = 'https://sneakers-ecommerce-5150.netlify.app/about'
+    status = 200
+    force = true
+    headers {X-From = "Netlify"}
