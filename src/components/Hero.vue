@@ -1,15 +1,10 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount} from 'vue'
+import { observer, observer, unobserve} from './observer'
 
 const shoe = ref(null)
 const hero1 = ref(null)
-let heroObs 
-const options = {
-    root: null,
-    rootMargin: '-112px',
-}
-
-const emit = defineEmits(['heroInView'])
+let observer
 
 function imageLoaded(){
     shoe.value.style.animation = 'drop 850ms ease forwards';
@@ -19,16 +14,12 @@ function imageLoaded(){
 const scrollTo = () => document.querySelector("#products").scrollIntoView({"behavior": 'smooth'})
 
 onMounted(() => {
-    heroObs = new IntersectionObserver(entries => {
-        if(entries[0].isIntersecting) emit('heroInView', true)
-        else emit('heroInView', false)
-    }, options)
-
-    heroObs.observe(hero1.value)
+    
+    observer(hero1.value, document.getElementById('nav-wrapper'))
 })
 
-onUnmounted(() => {
-    emit('heroInView', false)
+onBeforeUnmount(() => {
+    unobserve()
 })
 </script>
 

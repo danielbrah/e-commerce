@@ -50,5 +50,9 @@ $kumbh: 'Kumbh Sans', sans-serif;
 {
     font-family: $kumbh;
 
-    &__title{font-size: 38px}
+    &__title
+    {
+        font-size: 38px;
+        color: $white;
+    }
 }
