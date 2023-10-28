@@ -1,15 +1,17 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { observer, unobserve } from './observer';
+import Observer from './observer';
 
 const about1 = ref(null)
+let observer
 
 onMounted(() => {
-    observer(about1.value, document.getElementById('nav-wrapper'))
+    observer = new Observer(about1.value, document.getElementById('nav-wrapper'))
 })
 
 onBeforeUnmount(() => {
-    unobserve()
+    observer.cleanup()
+    observer = null
 })
 
 const emits = defineEmits(['heroInView'])

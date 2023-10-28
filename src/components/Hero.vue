@@ -1,9 +1,10 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount} from 'vue'
-import { observer, unobserve} from './observer'
+import Observer from './observer'
 
 const shoe = ref(null)
 const hero1 = ref(null)
+let observer
 
 function imageLoaded(){
     shoe.value.style.animation = 'drop 850ms ease forwards';
@@ -13,12 +14,12 @@ function imageLoaded(){
 const scrollTo = () => document.querySelector("#products").scrollIntoView({"behavior": 'smooth'})
 
 onMounted(() => {
-    
-    observer(hero1.value, document.getElementById('nav-wrapper'))
+    observer = new Observer(hero1.value, document.getElementById('nav-wrapper'))
 })
 
 onBeforeUnmount(() => {
-    unobserve()
+    observer.cleanup()
+    observer = null
 })
 </script>
 
