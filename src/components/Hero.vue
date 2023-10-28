@@ -1,10 +1,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount} from 'vue'
-import { observer, observer, unobserve} from './observer'
+import { observer, unobserve} from './observer'
 
 const shoe = ref(null)
 const hero1 = ref(null)
-let observer
 
 function imageLoaded(){
     shoe.value.style.animation = 'drop 850ms ease forwards';

@@ -22,15 +22,5 @@ export function unobserve()
    target = null
 }
 
-export default class Observer {
-    constructor(el)
-    {
-        this.el = el
-        
-    }
-
-    
-}
-
 
 
