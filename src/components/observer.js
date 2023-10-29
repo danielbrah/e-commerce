@@ -1,14 +1,11 @@
 export default class Observer { 
     _observer 
 
-    _options = {
-        root: null,
-        rootMargin: '-112px',
-    }
-
-    constructor(el, target){
+    constructor(el, target, options = {root: null, rootMargin: '-112px'}){
         this.el = el
         this.target = target
+        this.options = options
+
         this._createObserver(el, target)
     }
 
