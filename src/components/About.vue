@@ -6,6 +6,7 @@ const about1 = ref(null)
 let observer
 
 onMounted(() => {
+    window.scrollTo(0, 0)
     observer = new Observer(about1.value, document.getElementById('nav-wrapper'))
 })
 

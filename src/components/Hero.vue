@@ -14,6 +14,7 @@ function imageLoaded(){
 const scrollTo = () => document.querySelector("#products").scrollIntoView({"behavior": 'smooth'})
 
 onMounted(() => {
+    window.scrollTo(0, 0)
     observer = new Observer(hero1.value, document.getElementById('nav-wrapper'))
 })
 
