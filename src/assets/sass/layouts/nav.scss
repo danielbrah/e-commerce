@@ -68,12 +68,15 @@
     #nav-wrapper
     {
         height: 112px;
+
+        &.active{#nav{border-bottom: solid $white}}
         #nav
         {
             width: 1112px;
             margin: 0 auto;
             height: inherit;
             border-bottom: solid map-get($grayishblue, 'normal');
+
     
             &__first
             {
