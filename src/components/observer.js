@@ -14,7 +14,7 @@ export default class Observer {
         this._observer = new IntersectionObserver(entries => {
             if(entries[0].isIntersecting) t.classList.add('active')
             else t.classList.remove('active')
-        }, this._options)
+        }, this.options)
 
         this._observer.observe(e)
     }

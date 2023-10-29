@@ -25,7 +25,13 @@ const emits = defineEmits(['heroInView'])
 
         <div id="about__content">
             <div id="about__content--wrapper">
-                
+                <div class="about__card">
+                    <img src="../assets/images/group.jpg" alt="Group">
+                    <div>
+                        <h2>Some heading</h2>
+                        <p>Some text to go with picture</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
