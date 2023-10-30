@@ -4,20 +4,21 @@ import Observer from './observer';
 
 const about1 = ref(null)
 
-// const aboutContent = [ 
-//     {src: "/src/assets/images/group.jpg", heading: 'Some heading', paragraph: 'Some trext to with picture', alt: 'Group', key: 1}
-// ]
+let observeTitle
 
-let observer
+let observeCards
 
 onMounted(() => {
     window.scrollTo(0, 0)
-    observer = new Observer(about1.value, document.getElementById('nav-wrapper'))
+    observerTitle = new Observer(about1.value, document.getElementById('nav-wrapper'))
+
+    // cards
+    
 })
 
 onBeforeUnmount(() => {
-    observer.cleanup()
-    observer = null
+    observeTitle.cleanup()
+    observerTitle = null
 })
 
 const emits = defineEmits(['heroInView'])
@@ -34,9 +35,23 @@ const emits = defineEmits(['heroInView'])
                 <div class="about__card">
                     <img src="../assets/images/group.jpg" alt="Group">
                     <div>
-                        <h2>Some heading</h2>
-                        <p>Some text to go with the picture.</p>
+                        <h2>Our team</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius quidem eos? Eveniet, 
+                        quisquam perspiciatis magni hic quidem atque minus necessitatibus, sint expedita facilis vero 
+                        aspernatur numquam est dolorem ab velit quia amet, laudantium dolore.</p>
                     </div>
+                </div>
+
+                <div class="about__card">
+                    <div>
+                        <h2>Our team</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius quidem eos? Eveniet, 
+                        quisquam perspiciatis magni hic quidem atque minus necessitatibus, sint expedita facilis vero 
+                        aspernatur numquam est dolorem ab velit quia amet, laudantium dolore.</p>
+                    </div>
+                    <img src="../assets/images/group.jpg" alt="Group">
+
+                    
                 </div>
             </div>
         </div>

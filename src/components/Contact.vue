@@ -1,5 +1,9 @@
 <script setup>
-// const emits = defineEmits(['heroInView'])
+import { onMounted } from 'vue' 
+
+onMounted(() => {
+    window.scroll(0, 0)
+})
 </script>
 
 <template>

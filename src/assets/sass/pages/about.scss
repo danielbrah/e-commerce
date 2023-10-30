@@ -20,14 +20,30 @@
 
         &--wrapper
         {
+            @include flexCenter;
+            gap: 164px;
             .about__card
             {
                 @include flexCenter(column-reverse);
+                gap: 32px;
                 text-align: center;
 
                 img
                 {
                     width: 345px;
+                }
+
+                div 
+                {
+                    & > p{
+                        max-width: 35ch;
+                        font-size: 20px;
+                    }
+
+                    & > h2 {
+                        font-size: 34px;
+                        margin-bottom: 16px;
+                    }
                 }
 
                 @media(max-width: 280px)
@@ -40,9 +56,24 @@
 
                 @media(min-width: 1112px)
                 {
+                    text-align: left;
                     @include flexCenter(row);
+
                     img{
                         width: auto;
+                    }
+
+                    div 
+                    {
+                        & > p{
+                            max-width: 35ch;
+                            font-size: 20px;
+                        }
+
+                        & > h2 {
+                            font-size: 34px;
+                            margin-bottom: 16px;
+                        }
                     }
                 }
             }
