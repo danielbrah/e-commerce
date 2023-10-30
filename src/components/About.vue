@@ -24,8 +24,8 @@ const emits = defineEmits(['heroInView'])
 </script>
 
 <template>
-    <div ref="about1" id="about">
-        <div id="about__title">
+    <div id="about">
+        <div ref="about1" id="about__title">
             <h1>About Us</h1>
         </div>
 

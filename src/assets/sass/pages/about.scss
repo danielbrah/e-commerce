@@ -16,6 +16,8 @@
     {
         @include flexCenter;
 
+        padding: 64px 0;
+
         &--wrapper
         {
             .about__card

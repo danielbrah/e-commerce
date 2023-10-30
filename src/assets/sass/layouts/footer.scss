@@ -1,0 +1,9 @@
+@import '../abstract/colors.scss';
+footer
+{
+    background: $heroColor;
+    color: $white;
+    height: 500px;
+    display: grid;
+    place-items: center;
+}
