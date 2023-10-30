@@ -4,9 +4,9 @@ import Observer from './observer';
 
 const about1 = ref(null)
 
-const aboutContent = [ 
-    {src: "/src/assets/images/group.jpg", heading: 'Some heading', paragraph: 'Some trext to with picture', alt: 'Group', key: 1}
-]
+// const aboutContent = [ 
+//     {src: "/src/assets/images/group.jpg", heading: 'Some heading', paragraph: 'Some trext to with picture', alt: 'Group', key: 1}
+// ]
 
 let observer
 
@@ -31,11 +31,11 @@ const emits = defineEmits(['heroInView'])
 
         <div id="about__content">
             <div id="about__content--wrapper">
-                <div class="about__card" v-for="card in aboutContent" :key="card.key">
-                    <img :src="card.src" :alt="card.alt">
+                <div class="about__card">
+                    <img src="../assets/images/group.jpg" alt="Group">
                     <div>
-                        <h2>{{ card.heading }}</h2>
-                        <p>{{ card.paragraph }}</p>
+                        <h2>Some heading</h2>
+                        <p>Some text to go with the picture.</p>
                     </div>
                 </div>
             </div>
