@@ -4,21 +4,28 @@ import Observer from './observer';
 
 const about1 = ref(null)
 
-let observeTitle
+let observerTitle
 
-let observeCards
+let observeCards = []
 
 onMounted(() => {
     window.scrollTo(0, 0)
     observerTitle = new Observer(about1.value, document.getElementById('nav-wrapper'))
 
-    // cards
-    
+    // push new Observer objects
+    Array.from(document.querySelectorAll('.about__card'), el => observeCards.push(new Observer(el, null, {root: null, rootMargin: '-150px'})))
 })
 
 onBeforeUnmount(() => {
-    observeTitle.cleanup()
+    observerTitle.cleanup()
     observerTitle = null
+
+    observeCards.forEach(card => 
+    {
+        card.cleanup()
+    })
+
+    observeCards = []
 })
 
 const emits = defineEmits(['heroInView'])
@@ -33,7 +40,10 @@ const emits = defineEmits(['heroInView'])
         <div id="about__content">
             <div id="about__content--wrapper">
                 <div class="about__card">
-                    <img src="../assets/images/group.jpg" alt="Group">
+                    <div class="img-container">
+                        <img src="../assets/images/group.jpg" alt="Group">
+                    </div>
+
                     <div>
                         <h2>Our team</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius quidem eos? Eveniet, 
@@ -49,9 +59,9 @@ const emits = defineEmits(['heroInView'])
                         quisquam perspiciatis magni hic quidem atque minus necessitatibus, sint expedita facilis vero 
                         aspernatur numquam est dolorem ab velit quia amet, laudantium dolore.</p>
                     </div>
-                    <img src="../assets/images/group.jpg" alt="Group">
-
-                    
+                    <div class="img-container">
+                        <img src="../assets/images/group.jpg" alt="Group">
+                    </div> 
                 </div>
             </div>
         </div>

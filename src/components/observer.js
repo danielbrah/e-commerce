@@ -11,9 +11,20 @@ export default class Observer {
 
     _createObserver(e, t)
     {
-        this._observer = new IntersectionObserver(entries => {
-            if(entries[0].isIntersecting) t !== null ? t.classList.add('active') : e.classList.add('active')
-            else t !== null ? t.classList.remove('active') : e.classList.remove('active')
+        this._observer = new IntersectionObserver((entries, observer) => {
+            if(!t)
+            {
+                if (entries[0].isIntersecting)
+                {
+                    this.el.classList.add('active')
+                    observer.unobserve(e)
+                }
+            }
+            else
+            {
+                if(entries[0].isIntersecting) t.classList.add('active')
+                else t.classList.remove('active')
+            }
         }, this.options)
 
         this._observer.observe(e)
@@ -21,7 +32,7 @@ export default class Observer {
 
     cleanup(){
         this._observer.disconnect()
-        this.target.classList.remove('active')
+        !this.target ? this.el.classList.remove('active') : this.target.classList.remove('active')
         this._observer = null
     }
 }
