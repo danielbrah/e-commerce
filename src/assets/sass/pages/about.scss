@@ -89,7 +89,7 @@
                     text-align: left;
                     @include flexCenter(row);
 
-                    &.active
+                    &.l.active
                     {
                         .img-container
                         {
@@ -103,11 +103,35 @@
                         }
                     }
 
+                    &.r.active
+                    {
+                        .img-container
+                        {
+                            top: 0;
+                            right: 0;
+
+                            &::after{
+                                bottom: -64px;
+                                left: -32px;
+                            }
+                        }  
+                    }
+
+                    &.l > .img-container
+                    {
+                        top: 50px;
+                        right: -50px;
+                    }
+
+                    &.r > .img-container
+                    {
+                        top: 50px;
+                        right: 50px;
+                    }
+
                     .img-container
                     {
                         position: relative;
-                        top: 50px;
-                        right: -50px;
                         transition: top 350ms ease, right 350ms ease;
 
                         img{

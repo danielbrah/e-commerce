@@ -13,7 +13,7 @@ onMounted(() => {
     observerTitle = new Observer(about1.value, document.getElementById('nav-wrapper'))
 
     // push new Observer objects
-    Array.from(document.querySelectorAll('.about__card'), el => observeCards.push(new Observer(el, null, {root: null, rootMargin: '-150px'})))
+    Array.from(document.querySelectorAll('.about__card'), el => observeCards.push(new Observer(el, null, {root: null, rootMargin: '-375px'})))
 })
 
 onBeforeUnmount(() => {
@@ -39,7 +39,7 @@ const emits = defineEmits(['heroInView'])
 
         <div id="about__content">
             <div id="about__content--wrapper">
-                <div class="about__card">
+                <div class="about__card l">
                     <div class="img-container">
                         <img src="../assets/images/group.jpg" alt="Group">
                     </div>
@@ -52,7 +52,7 @@ const emits = defineEmits(['heroInView'])
                     </div>
                 </div>
 
-                <div class="about__card">
+                <div class="about__card r">
                     <div>
                         <h2>Our team</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius quidem eos? Eveniet, 
