@@ -48,7 +48,7 @@
             .about__card
             {
                 @include flexCenter(column-reverse);
-                gap: 64px;
+                gap: 70px;
                 text-align: center;
 
                 .img-container
@@ -84,7 +84,7 @@
                     }
                 }
 
-                @media(min-width: 1112px)
+                @media(min-width: 1183px)
                 {
                     text-align: left;
                     @include flexCenter(row);
