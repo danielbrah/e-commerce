@@ -10,8 +10,6 @@ const submit = (e) =>{
 
 onMounted(() => {
     window.scroll(0, 0)
-
-
 })
 </script>
 
@@ -19,7 +17,7 @@ onMounted(() => {
     <div id="contact">
         <div id="wrapper">
             <h1>Any Questions? Contact us.</h1>
-            <form ref="form" method="post" data-netlify="true" @submit.prevent="submit">
+            <form ref="form" method="post" netlify @submit.prevent="submit">
                 <label for="email">Email <span class="required">*</span></label>
                 <input type="email" name="email" id="email" placeholder="yourname@example.com" size="45" autocomplete="on">
 
