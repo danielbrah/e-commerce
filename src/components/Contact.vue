@@ -3,10 +3,6 @@ import { onMounted, ref } from 'vue'
 
 const form = ref(null)
 
-const submitForm = e => {
-    e.preventDefault()
-}
-
 
 onMounted(() => {
     window.scroll(0, 0)
@@ -17,7 +13,8 @@ onMounted(() => {
     <div id="contact">
         <div id="wrapper">
             <h1>Any Questions? Contact us.</h1>
-            <form ref="form" name="contactf" method="POST" @submit="submitForm" netlify>
+            <form ref="form" name="contact" method="POST">
+                <input type="hidden" name="form-name" value="contact" />
                 <label for="email">Email <span class="required">*</span></label>
                 <input type="email" name="email" id="email" placeholder="yourname@example.com" size="45" autocomplete="on">
 
