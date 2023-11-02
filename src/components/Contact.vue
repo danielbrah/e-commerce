@@ -1,8 +1,21 @@
 <script setup>
 import { onMounted, ref } from 'vue' 
+import { router } from './routes';
 
 const form = ref(null)
 
+const handleSubmit = function(e) {
+    const myForm = e.target
+    const formData = new FormData(myForm)
+
+    fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(formData).toString()
+    }).then(() => {
+        alert('Thank you for the submission!')
+    }).catch(err => alert(`${err.message}`))
+}
 
 onMounted(() => {
     window.scroll(0, 0)
@@ -13,7 +26,7 @@ onMounted(() => {
     <div id="contact">
         <div id="wrapper">
             <h1>Any Questions? Contact us.</h1>
-            <form ref="form" name="contact" method="POST">
+            <form ref="form" name="contact" method="POST" @submit.prevent="handleSubmit">
                 <input type="hidden" name="form-name" value="contact" />
                 <label for="email">Email <span class="required">*</span></label>
                 <input type="email" name="email" id="email" placeholder="yourname@example.com" size="45" autocomplete="on">
