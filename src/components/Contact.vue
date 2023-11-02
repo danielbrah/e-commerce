@@ -1,11 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue' 
 
-const form = ref(null)
-
-const submit = (e) =>{
-    console.log('submitted')
-}
+// const form = ref(null)
 
 
 onMounted(() => {
@@ -17,7 +13,7 @@ onMounted(() => {
     <div id="contact">
         <div id="wrapper">
             <h1>Any Questions? Contact us.</h1>
-            <form ref="form" method="post" netlify @submit.prevent="submit">
+            <form ref="form" method="POST" data-netlify="true">
                 <label for="email">Email <span class="required">*</span></label>
                 <input type="email" name="email" id="email" placeholder="yourname@example.com" size="45" autocomplete="on">
 
@@ -31,7 +27,6 @@ onMounted(() => {
             </form>
         </div>
     </div>
-
 </template>
 
 <style lang="scss" scoped>
