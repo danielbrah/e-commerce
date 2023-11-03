@@ -1,20 +1,15 @@
 <script setup>
-import { onMounted, ref } from 'vue' 
-import { router } from './routes';
+import { onMounted, ref} from 'vue'
 
-const form = ref(null)
+const email = ref()
+const subject = ref()
+const message = ref()
 
-const handleSubmit = function(e) {
-    const myForm = e.target
-    const formData = new FormData(myForm)
 
-    fetch('/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(formData).toString()
-    }).then(() => {
-        alert('Thank you for the submission!')
-    }).catch(err => alert(`${err.message}`))
+const handleSubmit = function() {
+    email.value = ''
+    subject.value = ''
+    message.value = ''
 }
 
 onMounted(() => {
@@ -26,18 +21,17 @@ onMounted(() => {
     <div id="contact">
         <div id="wrapper">
             <h1>Any Questions? Contact us.</h1>
-            <form ref="form" name="contact" method="POST" @submit.prevent="handleSubmit">
-                <input type="hidden" name="form-name" value="contact" />
+            <form ref="form" name="contact" @submit.prevent="handleSubmit">
                 <label for="email">Email <span class="required">*</span></label>
-                <input type="email" name="email" id="email" placeholder="yourname@example.com" size="45" autocomplete="on">
+                <input type="email" v-model="email" name="email" id="email" placeholder="yourname@example.com" size="45" autocomplete="on" required>
 
                 <label for="subject">Subject <span class="required">*</span></label>
-                <input type="text" name="subject" id="subject" placeholder="Subject">
+                <input type="text" v-model="subject" name="subject" id="subject" placeholder="Subject" required>
 
                 <label for="message">Message <span class="required">*</span></label>
-                <textarea id="message" name="message" rows="12" cols="64" placeholder="Your message here..."></textarea>
+                <textarea id="message" v-model="message" name="message" rows="12" cols="64" placeholder="Your message here..." required></textarea>
 
-                <button type="submit">Submit</button>
+                <button ref="submitBtn" type="submit">Submit</button>
             </form>
         </div>
     </div>
