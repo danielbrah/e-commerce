@@ -1,0 +1,44 @@
+@import '../base/typography.scss';
+#product__details
+{
+    font-family: $kumbh;
+    @media(min-width: 1112px)
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 112px auto 0 auto;
+        width: 1112px;
+        height: calc(100vh - 112px);
+        padding: 0 32px;
+    }
+
+    &--preview
+    {
+        &__image
+        {
+            @media(min-width: 1112px)
+            {
+                width: 445px;
+                height: 445px;
+                border: solid red;
+
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    &--info
+    {
+        @media(min-width: 1112px)
+        {
+            width: 45ch;
+            &__desc
+            {
+                width: 47ch;
+            }
+        }
+    }
+}
