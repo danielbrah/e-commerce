@@ -6,11 +6,11 @@
     {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         margin: 112px auto 0 auto;
         width: 1112px;
         height: calc(100vh - 112px);
-        padding: 0 32px;
+        padding: 0 64px;
     }
 
     &--preview
@@ -20,13 +20,27 @@
             @media(min-width: 1112px)
             {
                 width: 445px;
-                height: 445px;
-                border: solid red;
+                // height: 445px;
 
                 img{
                     max-width: 100%;
                 }
+
+                #preview__image__selection
+                {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 16px;
+                    & > div{
+                        width: 88px;
+                        height: 88px;
+                        border: solid brown;
+                        border-radius: 8px;
+                    }
+                }
             }
+
         }
     }
 

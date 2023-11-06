@@ -6,6 +6,13 @@
     <div id="product__details">
         <div id="product__details--preview__image">
             <img src="../assets/images/image-product-1.jpg" alt="Image">
+
+            <aside id="preview__image__selection">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </aside>
         </div>
 
         <div id="product__details--info">
