@@ -1,5 +1,6 @@
 @import '../base/typography.scss';
 @import '../abstract/colors.scss';
+@import '../abstract/mixins.scss';
 #product__details
 {
     font-family: $kumbh;
@@ -38,7 +39,7 @@
                     & > div{
                         width: 88px;
                         height: 88px;
-                        border: solid brown;
+                        border: 2px solid map-get($orange, 'normal');
                         border-radius: 8px;
                     }
                 }
@@ -69,10 +70,54 @@
                     margin-top: 16px;
                 }
 
-                p{
+                > p{
                     margin-top: 32px;
                     line-height: 165%;
                     color: map-get($grayishblue, 'dark');
+                }
+
+                // container for quantity section and 'add to cart' button
+                &__buttons
+                {
+                    display: flex;
+                    gap: 19px;
+                    height: 56px;
+                    margin-top: 32px;
+
+                    // the quantity section
+                    > div
+                    {   
+                        @include flexCenter(row);
+                        justify-content: space-between;
+                        width: 157px;
+                        background: map-get($grayishblue, 'light');
+                        outline: thin solid red;
+                        padding: 0 12px;
+
+                        // subtract and add quantity buttons
+                        button{
+                            display: grid; 
+                            place-items: center;
+                            color: map-get($orange, 'normal');
+                            font-size: 20px;
+                            font-weight: 500;
+                            border: none;
+                            cursor: pointer;
+                            padding: 4px;
+                        }
+                    }
+
+                    // add to cart
+                    > button
+                    {
+                        flex: 1;
+                        cursor: pointer;
+                    }
+
+                    // selects both quantity section and 'add to cart' button
+                    > *{
+                        border-radius: 8px;
+                    }
                 }
             }
         }
