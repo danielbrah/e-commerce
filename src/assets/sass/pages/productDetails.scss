@@ -91,7 +91,6 @@
                         justify-content: space-between;
                         width: 157px;
                         background: map-get($grayishblue, 'light');
-                        outline: thin solid red;
                         padding: 0 12px;
 
                         // subtract and add quantity buttons
@@ -104,14 +103,32 @@
                             border: none;
                             cursor: pointer;
                             padding: 4px;
+                            background: none;
+                            transition: opacity 100ms ease;
+
+                            &:hover
+                            {
+                                opacity: 0.5;
+                            }
                         }
                     }
 
-                    // add to cart
+                    // add to cart button
                     > button
                     {
                         flex: 1;
                         cursor: pointer;
+                        background: map-get($orange, 'normal');
+                        color: white;
+                        font-family: $kumbh;
+                        font-weight: 600;
+                        font-size: 16px;
+                        border: none;
+                        transition: opacity 100ms ease;
+
+                        &:hover{
+                            opacity: 0.5;
+                        }
                     }
 
                     // selects both quantity section and 'add to cart' button

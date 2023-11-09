@@ -36,9 +36,9 @@
 
                 <div id="product__details--info__desc__buttons">
                     <div>
-                        <button><img src="./icons/icon-minus.svg" alt="Subtract total quantity by one"></button>
+                        <button @click="count ? count-- : count"><img src="./icons/icon-minus.svg" alt="Subtract total quantity by one"></button>
                         <p>{{ count }}</p>
-                        <button><img src="./icons/icon-plus.svg" alt="Add total quantity by one"></button>
+                        <button @click="count++"><img src="./icons/icon-plus.svg" alt="Add total quantity by one"></button>
                     </div>
                     <button>Add to cart</button>
                 </div>
