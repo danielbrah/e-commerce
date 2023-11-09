@@ -17,8 +17,10 @@
 
         <div id="product__details--info">
             <div id="product__details--info__desc">
-                <p>Sneakers Company</p>
-                <h2>Fall Limited Edition Sneakers</h2>
+                <h2>Sneaker Company</h2>
+
+                <h3>Fall Limited Edition Sneakers</h3>
+
                 <p>These low-profile sneakers are your perfect casual wear companion.
                     Featuring a durable rubber outer sole, they'll withstand everything
                     the weather can offer.

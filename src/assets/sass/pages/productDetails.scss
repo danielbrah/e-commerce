@@ -1,4 +1,5 @@
 @import '../base/typography.scss';
+@import '../abstract/colors.scss';
 #product__details
 {
     font-family: $kumbh;
@@ -21,9 +22,11 @@
             {
                 width: 445px;
                 // height: 445px;
+                border-radius: 8px;
 
                 img{
                     max-width: 100%;
+                    border-radius: 8px;
                 }
 
                 #preview__image__selection
@@ -52,6 +55,25 @@
             &__desc
             {
                 width: 47ch;
+
+                h2{
+                    color: map-get($orange, 'normal');
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    font-weight: 700;
+                    letter-spacing: 2px;
+                }
+
+                h3{
+                    font-size: 48px;
+                    margin-top: 16px;
+                }
+
+                p{
+                    margin-top: 32px;
+                    line-height: 165%;
+                    color: map-get($grayishblue, 'dark');
+                }
             }
         }
     }
