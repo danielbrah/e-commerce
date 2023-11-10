@@ -53,10 +53,13 @@
         @media(min-width: 1112px)
         {
             width: 45ch;
+
+            // styles for general information about the product
             &__desc
             {
                 width: 47ch;
 
+                // product company
                 h2{
                     color: map-get($orange, 'normal');
                     text-transform: uppercase;
@@ -65,15 +68,51 @@
                     letter-spacing: 2px;
                 }
 
+                // product name
                 h3{
                     font-size: 48px;
                     margin-top: 16px;
                 }
 
+                // product description
                 > p{
                     margin-top: 32px;
                     line-height: 165%;
                     color: map-get($grayishblue, 'dark');
+                }
+
+                // container for pricing and discount
+                &__price
+                {
+                    margin-top: 24px;
+                    h4{
+                        // actual price
+                        &:nth-child(1)
+                        {
+                            display: inline;
+                            font-size: 30px;
+                        }
+
+                        // discount percentage %
+                        &:nth-child(2){
+                            position: relative;
+                            top: -5px;
+                            display: inline-block;
+                            background: map-get($orange, 'pale');
+                            color: map-get($orange, 'normal');
+                            padding: 3px;
+                            border-radius: 4px 8px;
+                            margin-left: 16px;
+                        }
+
+                        // old price
+                        &:nth-child(3)
+                        {
+                            text-decoration: line-through;
+                            color: map-get($grayishblue, 'normal');
+                            margin-top: 12px;
+                        }
+                    }
                 }
 
                 // container for quantity section and 'add to cart' button
@@ -110,6 +149,11 @@
                             {
                                 opacity: 0.5;
                             }
+                        }
+
+                        // quantity number placeholder
+                        p{
+                            font-weight: 600;
                         }
                     }
 
