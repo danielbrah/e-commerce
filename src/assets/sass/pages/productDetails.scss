@@ -1,0 +1,200 @@
+@import '../base/typography.scss';
+@import '../abstract/colors.scss';
+@import '../abstract/mixins.scss';
+#product__details
+{
+    font-family: $kumbh;
+    @media(min-width: 1112px)
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 112px auto 0 auto;
+        width: 1112px;
+        height: calc(100vh - 112px);
+        padding: 0 64px;
+    }
+
+    &--preview
+    {
+        &__image
+        {
+            @media(min-width: 1112px)
+            {
+                width: 445px;
+                border-radius: 8px;
+
+                // preview image
+                img{
+                    max-width: 100%;
+                    border-radius: 8px;
+                    cursor: pointer;
+                }
+
+                // image selection container
+                #preview__image__selection
+                {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 16px;
+
+                    // image selections
+                    & > div{
+                        width: 88px;
+                        height: 88px;
+                        border: 2px solid map-get($orange, 'normal');
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: border 150ms ease;
+
+                        &.active
+                        {
+                            border: 2px solid blue;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    &--info
+    {
+        @media(min-width: 1112px)
+        {
+            width: 45ch;
+
+            // styles for general information about the product
+            &__desc
+            {
+                width: 47ch;
+
+                // product company
+                h2{
+                    color: map-get($orange, 'normal');
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    font-weight: 700;
+                    letter-spacing: 2px;
+                }
+
+                // product name
+                h3{
+                    font-size: 48px;
+                    margin-top: 16px;
+                }
+
+                // product description
+                > p{
+                    margin-top: 32px;
+                    line-height: 165%;
+                    color: map-get($grayishblue, 'dark');
+                }
+
+                // container for pricing and discount
+                &__price
+                {
+                    margin-top: 24px;
+                    h4{
+                        // actual price
+                        &:nth-child(1)
+                        {
+                            display: inline;
+                            font-size: 30px;
+                        }
+
+                        // discount percentage %
+                        &:nth-child(2){
+                            position: relative;
+                            top: -5px;
+                            display: inline-block;
+                            background: map-get($orange, 'pale');
+                            color: map-get($orange, 'normal');
+                            padding: 3px;
+                            border-radius: 4px 8px;
+                            margin-left: 16px;
+                        }
+
+                        // old price
+                        &:nth-child(3)
+                        {
+                            text-decoration: line-through;
+                            color: map-get($grayishblue, 'normal');
+                            margin-top: 12px;
+                        }
+                    }
+                }
+
+                // container for quantity section and 'add to cart' button
+                &__buttons
+                {
+                    display: flex;
+                    gap: 19px;
+                    height: 56px;
+                    margin-top: 32px;
+
+                    // the quantity section
+                    > div
+                    {   
+                        @include flexCenter(row);
+                        justify-content: space-between;
+                        width: 157px;
+                        background: map-get($grayishblue, 'light');
+                        padding: 0 12px;
+
+                        // subtract and add quantity buttons
+                        button{
+                            display: grid; 
+                            place-items: center;
+                            color: map-get($orange, 'normal');
+                            font-size: 20px;
+                            font-weight: 500;
+                            border: none;
+                            cursor: pointer;
+                            padding: 4px;
+                            background: none;
+                            transition: opacity 100ms ease;
+
+                            &:hover
+                            {
+                                opacity: 0.5;
+                            }
+                        }
+
+                        // quantity number placeholder
+                        p{
+                            font-weight: 600;
+                        }
+                    }
+
+                    // add to cart button
+                    > button
+                    {
+                        @include flexCenter(row);
+                        justify-content: center;
+                        gap: 8px;
+                        flex: 1;
+                        cursor: pointer;
+                        background: map-get($orange, 'normal');
+                        color: white;
+                        font-family: $kumbh;
+                        font-weight: 600;
+                        font-size: 16px;
+                        border: none;
+                        transition: opacity 100ms ease;
+
+                        &:hover{
+                            opacity: 0.5;
+                        }
+                    }
+
+                    // selects both quantity section and 'add to cart' button
+                    > *{
+                        border-radius: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

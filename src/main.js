@@ -1,5 +1,4 @@
 import './assets/sass/main.scss'
-// import { createRouter, createWebHistory} from 'vue-router'
 import { createApp } from 'vue'
 import { router } from './components/routes';
 import App from './App.vue'
