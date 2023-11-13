@@ -22,25 +22,36 @@
             @media(min-width: 1112px)
             {
                 width: 445px;
-                // height: 445px;
                 border-radius: 8px;
 
+                // preview image
                 img{
                     max-width: 100%;
                     border-radius: 8px;
+                    cursor: pointer;
                 }
 
+                // image selection container
                 #preview__image__selection
                 {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     margin-top: 16px;
+
+                    // image selections
                     & > div{
                         width: 88px;
                         height: 88px;
                         border: 2px solid map-get($orange, 'normal');
                         border-radius: 8px;
+                        cursor: pointer;
+                        transition: border 150ms ease;
+
+                        &.active
+                        {
+                            border: 2px solid blue;
+                        }
                     }
                 }
             }
@@ -160,6 +171,9 @@
                     // add to cart button
                     > button
                     {
+                        @include flexCenter(row);
+                        justify-content: center;
+                        gap: 8px;
                         flex: 1;
                         cursor: pointer;
                         background: map-get($orange, 'normal');

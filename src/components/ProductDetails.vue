@@ -2,18 +2,25 @@
     import { onMounted, ref} from 'vue'
 
     const count = ref(0)
+
+    let current = ref(1)
+
+    const carousel = function(e)
+    {
+        if(Number(e.target.dataset.tab) !== current.value) current.value = Number(e.target.dataset.tab)
+    }
 </script>
 
 <template>
     <div id="product__details">
         <div id="product__details--preview__image">
-            <img src="../assets/images/image-product-1.jpg" alt="Image">
+            <img ref="imgSrc" :src="`src/assets/images/image-product-${current}.jpg`" alt="Image">
 
             <aside id="preview__image__selection">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div data-tab="1" :class="{'active' : current === 1}" @click="carousel">test 1</div>
+                <div data-tab="2" :class="{'active' : current === 2}" @click="carousel">test 2</div>
+                <div data-tab="3" :class="{'active' : current === 3}" @click="carousel">test 3</div>
+                <div data-tab="4" :class="{'active' : current === 4}" @click="carousel">test 4</div>
             </aside>
         </div>
 
@@ -40,7 +47,7 @@
                         <p>{{ count }}</p>
                         <button @click="count++"><img src="./icons/icon-plus.svg" alt="Add total quantity by one"></button>
                     </div>
-                    <button>Add to cart</button>
+                    <button><img src="../components/icons/icon-cart-light.svg" alt="">Add to cart</button>
                 </div>
             </div>
         </div>
