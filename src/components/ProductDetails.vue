@@ -14,7 +14,7 @@
 <template>
     <div id="product__details">
         <div id="product__details--preview__image">
-            <img ref="imgSrc" :src="`images/image-product-${current}.jpg`" alt="Image">
+            <img ref="imgSrc" :src="`/images/image-product-${current}.jpg`" alt="Image">
 
             <aside id="preview__image__selection">
                 <div data-tab="1" :class="{'active' : current === 1}" @click="carousel">test 1</div>
