@@ -2,10 +2,9 @@
     import { onMounted, ref} from 'vue'
 
     const count = ref(0)
+    const current = ref(1)
 
-    let current = ref(1)
-
-    const carousel = function(e)
+    const changeImage = function(e)
     {
         if(Number(e.target.dataset.tab) !== current.value) current.value = Number(e.target.dataset.tab)
     }
@@ -17,10 +16,10 @@
             <img ref="imgSrc" :src="`/images/image-product-${current}.jpg`" alt="Image">
 
             <aside id="preview__image__selection">
-                <div data-tab="1" :class="{'active' : current === 1}" @click="carousel">test 1</div>
-                <div data-tab="2" :class="{'active' : current === 2}" @click="carousel">test 2</div>
-                <div data-tab="3" :class="{'active' : current === 3}" @click="carousel">test 3</div>
-                <div data-tab="4" :class="{'active' : current === 4}" @click="carousel">test 4</div>
+                <div data-tab="1" :class="{'active' : current === 1}" @click="changeImage">test 1</div>
+                <div data-tab="2" :class="{'active' : current === 2}" @click="changeImage">test 2</div>
+                <div data-tab="3" :class="{'active' : current === 3}" @click="changeImage">test 3</div>
+                <div data-tab="4" :class="{'active' : current === 4}" @click="changeImage">test 4</div>
             </aside>
         </div>
 
@@ -54,6 +53,6 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/sass/pages/productDetails.scss';
 </style>
