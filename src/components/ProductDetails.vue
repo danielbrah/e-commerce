@@ -1,13 +1,25 @@
 <script setup>
     import { onMounted, ref} from 'vue'
+    import { useCartStore } from '../store/store'
 
     const count = ref(0)
     const current = ref(1)
+    const store = useCartStore()
+
+    const addItem = function() {
+        store.cart.push(
+        {title: 'Lorem Ipsum', 
+        quantity: 5, 
+        price: 150.00, },
+        )
+    }
 
     const changeImage = function(e)
     {
         if(Number(e.target.dataset.tab) !== current.value) current.value = Number(e.target.dataset.tab)
     }
+
+
 </script>
 
 <template>
@@ -46,7 +58,7 @@
                         <p>{{ count }}</p>
                         <button @click="count++"><img src="./icons/icon-plus.svg" alt="Add total quantity by one"></button>
                     </div>
-                    <button><img src="../components/icons/icon-cart-light.svg" alt="">Add to cart</button>
+                    <button @click="addItem"><img src="../components/icons/icon-cart-light.svg" alt="">Add to cart</button>
                 </div>
             </div>
         </div>

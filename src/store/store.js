@@ -1,13 +1,16 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
-export default useCartStore = defineStore('cart', {
-    state: () => ({
-        cart: []
-    }), 
+export const useCartStore = defineStore('cart', () => {
+    const cart = ref([])
 
-    actions: {
-        addToCart(item){
-            this.cart.push(item)
-        }
+    function addItemToCart(item){
+        cart.value.push(item)
     }
+
+    function $reset(){
+        cart.value = []
+    }
+
+    return { cart, addItemToCart, $reset }
 })
