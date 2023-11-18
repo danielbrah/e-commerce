@@ -5,15 +5,28 @@
     const count = ref(0)
     const current = ref(1)
     const store = useCartStore()
-
     const props = defineProps(['id'])
+    const product = ref()
 
-    const addItem = function() {
-        store.cart.push(
-        {title: 'Lorem Ipsum', 
-        quantity: 5, 
-        price: 150.00, },
-        )
+    // const addItem = function() {
+    //     store.cart.push(
+    //     {title: 'Lorem Ipsum', 
+    //     quantity: 5, 
+    //     price: 150.00, },
+    //     )
+    // }
+
+    const getItemData = async function(id){
+        try{
+            const data = await fetch(`https://fakestoreapi.com/products/${id}`)
+            if(!data.ok) throw new Error('Something went wrong. :(')
+
+            product.value = await data.json()
+            console.log(product.value)
+
+        } catch(err){
+            console.log(err.message)
+        }
     }
 
     const changeImage = function(e)
@@ -23,6 +36,7 @@
 
     onMounted(() => {
         window.scrollTo(0, 0)
+        getItemData(props.id)
     })
 
 </script>
@@ -42,7 +56,7 @@
 
         <div id="product__details--info">
             <div id="product__details--info__desc">
-                <h2>Sneaker Company</h2>
+                <h2>Company Name</h2>
                 {{ props.id }}
 
                 <h3>Fall Limited Edition Sneakers</h3>
