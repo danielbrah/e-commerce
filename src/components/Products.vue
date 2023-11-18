@@ -5,7 +5,7 @@
 
     const getData = async function(){
         try{
-            const res = await fetch(`https://fakestoreapi.com/products?limit=5`)
+            const res = await fetch(`https://fakestoreapi.com/products?limit=8`)
             if(!res.ok) throw new Error('Something went wrong with getting data.')
 
             const data = await res.json()
@@ -29,7 +29,7 @@ onMounted(() =>
             <div class="product" v-for="product in productData" :key="product.id">
                 <img :src="product.image" alt="image">
                 <h2>{{ product.title }}</h2>
-                <button>View</button>
+                <router-link :to="`/preview-product/${productData.indexOf(product) + 1}`"><button>View</button></router-link>
                 <h3>${{ (product.price).toFixed(2) }}</h3>
             </div>
         </div>

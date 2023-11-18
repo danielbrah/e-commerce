@@ -6,6 +6,8 @@
     const current = ref(1)
     const store = useCartStore()
 
+    const props = defineProps(['id'])
+
     const addItem = function() {
         store.cart.push(
         {title: 'Lorem Ipsum', 
@@ -19,6 +21,9 @@
         if(Number(e.target.dataset.tab) !== current.value) current.value = Number(e.target.dataset.tab)
     }
 
+    onMounted(() => {
+        window.scrollTo(0, 0)
+    })
 
 </script>
 
@@ -38,6 +43,7 @@
         <div id="product__details--info">
             <div id="product__details--info__desc">
                 <h2>Sneaker Company</h2>
+                {{ props.id }}
 
                 <h3>Fall Limited Edition Sneakers</h3>
 
