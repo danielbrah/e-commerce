@@ -1,26 +1,20 @@
 <script setup>
-    import { ref, onMounted} from 'vue'
+    import { ref, onMounted, watch} from 'vue'
+    import { useDataStore } from '../store/data'
 
-    const productData = ref()
+    const dataStore = useDataStore()
 
-    const getData = async function(){
-        try{
-            const res = await fetch(`https://fakestoreapi.com/products?limit=8`)
-            if(!res.ok) throw new Error('Something went wrong with getting data.')
+    const productData = ref(null)
 
-            const data = await res.json()
-            productData.value = data
-        } catch(err)
-        {
-            console.error(`Error: ${err.message}`)
-        }
-    }
+    onMounted(() => 
+    {
+        productData.value = dataStore.data
+    })
 
-onMounted(() => 
-{
-    getData()
-})
-</script>
+    watch(() => dataStore.data, () => {
+        productData.value = dataStore.data
+    })
+    </script>
 
 <template>
     <div id="products">

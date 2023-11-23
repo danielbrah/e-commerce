@@ -1,13 +1,26 @@
 <script setup>
-    import { onMounted, ref} from 'vue'
-    import { useCartStore } from '../store/store'
+    import { onMounted, onUnmounted, ref, watch} from 'vue'
+    import { useCartStore } from '../store/cart'
+    import { useDataStore } from '../store/data';
 
+    // quantity
     const count = ref(0)
-    const current = ref(1)
-    const store = useCartStore()
-    const props = defineProps(['id'])
-    const product = ref()
 
+    // images preview
+    const current = ref(1)
+
+    // pinia
+    const store = useCartStore()
+    const productData = useDataStore()
+
+    // props: dynamic routing
+    const props = defineProps(['id'])
+
+    // product data
+    const product = ref(null)
+
+    // condition that checks whether fetch is done
+    const isLoading = ref(true)
     // const addItem = function() {
     //     store.cart.push(
     //     {title: 'Lorem Ipsum', 
@@ -16,19 +29,6 @@
     //     )
     // }
 
-    const getItemData = async function(id){
-        try{
-            const data = await fetch(`https://fakestoreapi.com/products/${id}`)
-            if(!data.ok) throw new Error('Something went wrong. :(')
-
-            product.value = await data.json()
-            console.log(product.value)
-
-        } catch(err){
-            console.log(err.message)
-        }
-    }
-
     const changeImage = function(e)
     {
         if(Number(e.target.dataset.tab) !== current.value) current.value = Number(e.target.dataset.tab)
@@ -36,7 +36,26 @@
 
     onMounted(() => {
         window.scrollTo(0, 0)
-        getItemData(props.id)
+        
+        if(productData.data !== null)
+        {
+            product.value = productData.data[props.id - 1]
+            isLoading.value = false
+        }
+        else{
+            watch(() => productData.data, () => {
+            if(productData.data)
+            {
+
+                isLoading.value = false
+                product.value = productData.data[props.id - 1]
+            }
+        })
+        }
+    })
+
+    onUnmounted(() => {
+        product.value = null
     })
 
 </script>
@@ -56,20 +75,23 @@
 
         <div id="product__details--info">
             <div id="product__details--info__desc">
-                <h2>Company Name</h2>
-                {{ props.id }}
+                <h2>Some Blah Blah Company Name</h2>
 
-                <h3>Fall Limited Edition Sneakers</h3>
+                <h3 v-if="isLoading">Loading...</h3>
+                <h3 v-else>{{ product.title }}</h3>
 
-                <p>These low-profile sneakers are your perfect casual wear companion.
-                    Featuring a durable rubber outer sole, they'll withstand everything
-                    the weather can offer.
-                </p>
+                <p v-if="isLoading">Loading...</p>
+                <p v-else>{{ product.description }}</p>
 
                 <div id="product__details--info__desc__price">
-                    <h4>$125.00</h4>
+                    <!-- <h4>$125.00</h4> -->
+                    <h4 v-if="isLoading">...</h4>
+                    <h4 v-else>${{ (product.price).toFixed(2) }}</h4>
+
                     <h4>50%</h4>
-                    <h4>$250.00</h4>
+
+                    <h4 v-if="isLoading">...</h4>
+                    <h4 v-else>${{ (product.price / 2).toFixed(2) }}</h4>
                 </div>
 
                 <div id="product__details--info__desc__buttons">
