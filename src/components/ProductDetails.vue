@@ -46,7 +46,6 @@
             watch(() => productData.data, () => {
             if(productData.data)
             {
-
                 isLoading.value = false
                 product.value = productData.data[props.id - 1]
             }
