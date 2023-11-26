@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import Cart from '../components/Nav.vue';
+import Cart from '../components/Cart.vue';
+import { useMenuStore } from '../store/openCart';
+
+const menuState = useMenuStore()
 
 // nav links
 const links = ref([
@@ -22,15 +25,17 @@ const links = ref([
                         v-bind:to="link.link" 
                         :key="link.id">{{ link.display }}
                     </router-link>
-                    <p></p>
                 </div>
             </div>
 
             <div id="nav__second">
-                <img class="nav__dark" src="./icons/icon-cart.svg" alt="Cart icon / Show items in cart">
-                <img class="nav__light" src="./icons/icon-cart-light.svg" alt="Cart icon / Show items in cart">
+                <img @click="() => menuState.isOpened = true" class="nav__dark" src="./icons/icon-cart.svg" alt="Cart icon / Show items in cart">
+                <img @click="() => menuState.isOpened = true" class="nav__light" src="./icons/icon-cart-light.svg" alt="Cart icon / Show items in cart">
                 <img src="../assets/images/image-avatar.png" alt="Profile avatar">
+                <Cart/>
             </div>
+
+            
         </div>
     </nav>
 </template>

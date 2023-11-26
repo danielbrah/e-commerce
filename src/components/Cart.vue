@@ -1,10 +1,18 @@
 <script setup>
     import { gsap } from 'gsap'
+    import { useMenuStore } from '../store/openCart';
+    import { ref } from 'vue';
+
+    const menuState = useMenuStore()
+
+    
     
 </script>
 
 <template>
-    <h1>wassup</h1>
+    <div id="cart">
+        <h2>Cart</h2>
+    </div>
 </template>
 
 <style lang="scss">

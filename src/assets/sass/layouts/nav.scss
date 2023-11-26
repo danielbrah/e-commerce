@@ -121,6 +121,7 @@
             &__second
             {
                 gap: 42px;
+                position: relative;
                 img{
                     cursor: pointer;
                     &:nth-child(3)

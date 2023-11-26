@@ -1,0 +1,20 @@
+@import '../base/typography.scss';
+@import '../abstract/colors.scss';
+#cart
+{
+    font-family: $kumbh;
+    @media(min-width: 1112px){
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        border: solid red;
+        left: -100px;
+        top: 45px;
+        background: white;
+        padding: 12px;
+
+        h2{
+            border-bottom: thin solid map-get($grayishblue, 'normal');
+        }
+    }
+}
