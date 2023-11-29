@@ -9,12 +9,20 @@
         height: 350px;
         border: solid red;
         left: -100px;
-        top: 45px;
+        top: 40px;
+        opacity: 0;
         background: white;
         padding: 12px;
+        transition: top 150ms ease, opacity 150ms ease;
 
         h2{
             border-bottom: thin solid map-get($grayishblue, 'normal');
+        }
+
+        &.active
+        {
+            top: 45px;
+            opacity: 1;
         }
     }
 }

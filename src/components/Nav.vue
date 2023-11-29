@@ -10,6 +10,18 @@ const links = ref([
     {link: '/about', display: 'About', id: 1},
     {link: '/contact', display: 'Contact', id: 2}
 ])
+
+const handleEvent = function(e){
+    if(!(e.target.closest('#cart') || e.target.closest('.cart__btn'))){
+        menuState.toggleMenu()
+        document.body.removeEventListener('click', handleEvent)
+    }
+}
+
+const manageClick = function(){
+   menuState.toggleMenu()
+   document.body.addEventListener('click', handleEvent)
+}
 </script>
 
 <template>
@@ -29,8 +41,8 @@ const links = ref([
             </div>
 
             <div id="nav__second">
-                <img @click="() => menuState.isOpened = true" class="nav__dark" src="./icons/icon-cart.svg" alt="Cart icon / Show items in cart">
-                <img @click="() => menuState.isOpened = true" class="nav__light" src="./icons/icon-cart-light.svg" alt="Cart icon / Show items in cart">
+                <img @click="manageClick()" class="nav__dark cart__btn" src="./icons/icon-cart.svg" alt="Cart icon / Show items in cart">
+                <img @click="manageClick()" class="nav__light cart__btn" src="./icons/icon-cart-light.svg" alt="Cart icon / Show items in cart">
                 <img src="../assets/images/image-avatar.png" alt="Profile avatar">
                 <Cart/>
             </div>

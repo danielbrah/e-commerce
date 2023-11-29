@@ -5,12 +5,10 @@
 
     const menuState = useMenuStore()
 
-    
-    
 </script>
 
 <template>
-    <div id="cart">
+    <div id="cart" :class="{ 'active': menuState.isOpened }">
         <h2>Cart</h2>
     </div>
 </template>
